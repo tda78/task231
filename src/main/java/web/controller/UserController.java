@@ -40,7 +40,8 @@ public class UserController {
         return "userupdate";
     }
     @PostMapping("/update")
-    public String submitUpdate(@ModelAttribute("user") User user){
+    public String submitUpdate(@ModelAttribute("user") User user, @RequestParam("id") long id){
+        user.setId(id);
         service.updateUser(user);
         return "redirect:/users";
     }
@@ -51,8 +52,8 @@ public class UserController {
         return "deleteUser";
     }
     @PostMapping("/delete")
-    public String deleteUser(@ModelAttribute("user") User user){
-        service.deleteUser(user);
+    public String deleteUser(@RequestParam("id") long id){
+        service.deleteUser(id);
         return "redirect:/users";
     }
 }

@@ -8,7 +8,8 @@
 <body>
 <div>
     hello
-    <form th:method="POST" th:action="@{/users/delete}" th:object="${user}">
+    <form th:method="POST" th:action="@{/users/delete(id=${user.getId()})}" th:object="${user}">
+        <input type="text" disabled th:field="*{id}">
         <label for="name"> name: </label>
         <input type="text" th:field="*{name}" id="name">
         <label for="lastName"> last name: </label>
