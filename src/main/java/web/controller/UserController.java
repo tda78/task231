@@ -11,14 +11,14 @@ import web.service.UserService;
 @RequestMapping("/users")
 public class UserController {
 
-    UserService service;
+    private UserService service;
 
     @Autowired
     public UserController(UserService service) {
         this.service = service;
     }
 
-    @GetMapping("")
+    @GetMapping
     public String getAllUsers(Model model) {
         model.addAttribute("users", service.getAllUsers());
         return "users";
