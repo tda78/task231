@@ -16,7 +16,6 @@ public class CarController {
     CarService service;
 
     @GetMapping("")
-
     public String getCount(HttpServletRequest request, ModelMap model) {
         int count;
         if (request.getParameter("count") == null) {
